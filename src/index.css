@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --purple:#4B2A85;
+  --purple-deep:#1A0B2E;
+  --purple-mid:#2D1B4E;
+  --lav:#E9E2F5;
+  --pista:#DCE8B5;
+  --pista-deep:#B9D07A;
+  --ivory:#FFF9F0;
+  --gold:#C9A24B;
+  --gold-soft:#F2E6C5;
+  --ink:#1A1230;
+  --ink-soft:#2D1B4E;
+  --muted:#574B73;
+  --surface:#FFF9F0;
+  --card:#FFFFFF;
+  --line:#D8D3E6;
+  --field-bg:#FFFFFF;
+  --field-text:#1A1230;
+  --field-placeholder:#7A6A9A;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface:#FFF9F0;
+    --card:#FFFFFF;
+    --ivory:#FFF9F0;
+    --ink:#1A1230;
+    --muted:#574B73;
+    --line:#D8D3E6;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.7}
+.font-serif-d{font-family:'Fraunces',Georgia,serif}
+.check-bg{
+  background-image:
+    linear-gradient(rgba(75,42,133,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(75,42,133,.08) 1px, transparent 1px);
+  background-size:22px 22px;
+}
+.stripe-bar{background:repeating-linear-gradient(90deg,#4B2A85 0 14px,#C9A24B 14px 18px,#DCE8B5 18px 34px,#4B2A85 34px 48px)}
+@keyframes heroZoom{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+.hero-zoom{animation:heroZoom 14s ease-in-out infinite alternate}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-track{animation:marquee 26s linear infinite;white-space:nowrap}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .6s ease both}
+@keyframes floatSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float-soft{animation:floatSoft 5s ease-in-out infinite}
+@keyframes testiFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.testi-fade{animation:testiFade .55s ease both}
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{scrollbar-width:none}
+.card-hover{transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease}
+.card-hover:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(26,11,46,.18);border-color:#C9A24B}
+.glass{background:rgba(255,255,255,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.glass-dark{background:rgba(26,11,46,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease, transform .65s ease}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+/* GLOBAL FORM CONTRAST — the critical fix */
+.field, input, select, textarea{
+  font-family:inherit;
+  background:#FFFFFF !important;
+  color:#1A1230 !important;
+  border:1.5px solid #D8D3E6 !important;
+  border-radius:14px;
+  font-size:16px !important;
+  font-weight:500;
+  line-height:1.5;
+  outline:none;
+  width:100%;
+}
+.field, input:not([type="checkbox"]):not([type="radio"]), select, textarea{padding:13px 14px}
+.field::placeholder, input::placeholder, textarea::placeholder{color:#7A6A9A !important;opacity:1;font-weight:500}
+.field:focus, input:focus, select:focus, textarea:focus{
+  border-color:#C9A24B !important;
+  box-shadow:0 0 0 4px rgba(201,162,75,.32) !important;
+}
+.field-label{color:#1A1230;font-weight:700;font-size:14px;display:block}
+.field-label.on-dark{color:#FFFFFF}
+.field-hint{color:#D8D3E6;font-weight:600;font-size:13px;line-height:1.5}
+.on-dark{color:#FFFFFF}
+.on-dark-muted{color:#F5EFFF}
+.btn-gold{background:#C9A24B !important;color:#1A1230 !important;font-weight:700;border:2px solid #C9A24B;box-shadow:0 10px 24px rgba(201,162,75,.28)}
+.btn-gold:hover{background:#D9B968 !important}
+.btn-purple{background:#4B2A85 !important;color:#FFFFFF !important;font-weight:700;border:2px solid #4B2A85}
+.btn-purple:hover{background:#2D1B4E !important}
+.btn-outline-light{background:rgba(255,255,255,.12);color:#FFFFFF;border:2px solid rgba(255,255,255,.85);font-weight:700}
+.btn-outline-dark{background:#FFFFFF;color:#1A1230;border:2px solid #4B2A85;font-weight:700}
+select.field{appearance:auto}
+@media (prefers-reduced-motion: reduce){
+  .hero-zoom,.marquee-track,.float-soft{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
