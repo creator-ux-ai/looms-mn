@@ -61,7 +61,19 @@ export default function App() {
         const rec = data?.records?.[0];
         if (rec?.value) {
             const v = rec.value;
-            const clean = { businessName: v.businessName || DEFAULT_SETTINGS.businessName, tagline: v.tagline || DEFAULT_SETTINGS.tagline, whatsapp: v.whatsapp || DEFAULT_SETTINGS.whatsapp, instagram: v.instagram || DEFAULT_SETTINGS.instagram, phone: v.phone || DEFAULT_SETTINGS.phone, location: v.location || DEFAULT_SETTINGS.location, about: v.about || DEFAULT_SETTINGS.about };
+            const useValue = (value, fallback) => {
+                const text = typeof value === "string" ? value.trim() : "";
+                return !text || text.includes("PASTE_") || text.startsWith("Add your") ? fallback : text;
+            };
+            const clean = {
+                businessName: useValue(v.businessName, DEFAULT_SETTINGS.businessName),
+                tagline: useValue(v.tagline, DEFAULT_SETTINGS.tagline),
+                whatsapp: useValue(v.whatsapp, DEFAULT_SETTINGS.whatsapp),
+                instagram: useValue(v.instagram, DEFAULT_SETTINGS.instagram),
+                phone: useValue(v.phone, DEFAULT_SETTINGS.phone),
+                location: useValue(v.location, DEFAULT_SETTINGS.location),
+                about: useValue(v.about, DEFAULT_SETTINGS.about)
+            };
             setSettings(clean);
             setDraftSettings(clean);
             setSettingsId(rec.id);

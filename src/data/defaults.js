@@ -9,10 +9,10 @@ export const DEFAULT_PRODUCTS = [
 export const DEFAULT_SETTINGS = {
     businessName: "MN Looms",
     tagline: "From our loom to your drape. Pure handloom, woven with pride.",
-    whatsapp: "PASTE_YOUR_WHATSAPP_NUMBER_HERE",
-    instagram: "PASTE_YOUR_INSTAGRAM_LINK_HERE",
-    phone: "Add your phone number in Edit Site",
-    location: "Add your weaving location in Edit Site",
+    whatsapp: "919743380815",
+    instagram: "https://www.instagram.com/_vinay__m/",
+    phone: "+919743380815",
+    location: "Rabkavi",
     about: "We are a weaver family. Every saree begins as yarn on a wooden loom in our home — counted, dyed, stretched and woven by hand. No shortcuts, no machine shortcuts, just patience. When you wear an MN Looms saree, you wear days of careful work and a craft we are proud to pass on.",
 };
 export const TESTIMONIALS = [
